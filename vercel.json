@@ -1,21 +1,9 @@
 {
   "version": 2,
-  "build": {
-    "env": {
-      "ENABLE_COREPACK": "1"
-    }
-  },
-  "builds": [
-    {
-      "src": "server/index.ts",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/server/index.ts"
-    }
+  "installCommand": "corepack enable && pnpm install",
+  "buildCommand": "vite build",
+  "outputDirectory": "dist/public",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
-
